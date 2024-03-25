@@ -1,6 +1,8 @@
 # TG Project Management System
 
-The TG Project Management System is a comprehensive backend solution designed for managing projects and employee interactions within an organization. This system simplifies project tracking, department management, and employee operations with a focus on scalability and security.
+The TG Project Management System is a comprehensive backend solution designed for managing projects and employee interactions within an organization. This system simplifies project tracking, department management, and employee operations with a focus on scalability and security. 
+
+This project is in the initial development stage, only basic functions are implemented. It is for reference only, please do not use it for any commercial purpose.
 
 ## Architecture & Technologies
 
