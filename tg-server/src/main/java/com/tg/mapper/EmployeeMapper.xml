@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tg.mapper.EmployeeMapper">
+
+    <!-- Select operation by ID -->
+    <select id="getById" resultType="com.tg.entity.Employee">
+        SELECT * FROM employee WHERE id = #{id}
+    </select>
+
+    <!-- Insert operation -->
+    <insert id="insert" parameterType="com.tg.dto.EmployeeDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee (name, username, department, password)
+        VALUES (#{name}, #{username}, #{department}, #{password})
+    </insert>
+
+    <!-- Update operation -->
+    <update id="update" parameterType="com.tg.entity.Employee">
+        UPDATE employee
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="department != null">department = #{department},</if>
+            <if test="password != null">password = #{password}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- Delete operation -->
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM employee WHERE id = #{id}
+    </delete>
+
+    <!-- Select operation by username -->
+    <select id="getByUsername" resultType="com.tg.entity.Employee">
+        SELECT * FROM employee WHERE username = #{username}
+    </select>
+
+</mapper>

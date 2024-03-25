@@ -1,0 +1,69 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-circular-references: true
+  application:
+    name: Initiate_Project
+  datasource:
+    url: jdbc:postgresql://localhost:5432/initialize_project
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+mybatis:
+  type-aliases-package: com.tg.entity
+#  mapper-locations: classpath:/com/tg/mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml
+#  mapper-locations: classpath*:com/tg/mapper/**/*.xml
+
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN ID
+
+redis:
+  host: localhost
+  port: 6379
+  password: 123456
+
+qmqp:
+  broker-url: tcp://localhost:5672 # QMQP服务地址
+  username: user # 用户名
+  password: secret # 密码
+  # virtual-host: /your-vhost
+  connection-timeout: 10000 # 连接超时时间，单位毫秒
+  cache:
+    connection: true # 是否缓存连接
+    channel: true # 是否缓存通道
+  listener:
+    concurrency: 10 # 监听器的并发消费者数量
+    acknowledge-mode: auto # 消息确认模式
+  template:
+    default-destination: your-queue-name # 默认目标队列名称
+    receive-timeout: 2000 # 接收超时时间，单位毫秒
+
+tg:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: 123456
+    # 设置jwt过期时间
+    admin-ttl: 72000000000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: 123456
+    user-ttl: 72000000000
+    user-token-name: authentication
+
+## application.yml
+#debug: true

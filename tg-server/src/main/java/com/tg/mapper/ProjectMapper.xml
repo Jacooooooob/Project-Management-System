@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tg.mapper.ProjectMapper">
+
+    <resultMap id="ProjectResultMap" type="com.tg.entity.Project">
+        <id column="id" property="id" />
+        <result column="project_number" property="projectNumber" />
+        <result column="project_name" property="projectName" />
+        <result column="department_id" property="department" />
+        <result column="manager_id" property="manager" />
+        <result column="project_category_id" property="projectCategory" />
+        <result column="project_type_id" property="projectType" />
+        <result column="budget" property="budget" />
+        <result column="product_type_id" property="productType" />
+        <result column="product_name" property="productName" />
+        <result column="product_number" property="productNumber" />
+        <result column="industry_id" property="industry" />
+        <result column="attachment" property="attachment" />
+    </resultMap>
+
+    <select id="getByProjectName" resultType="com.tg.entity.Project">
+        SELECT * FROM project WHERE project_name LIKE CONCAT('%', #{projectName}, '%')
+    </select>
+
+    <select id="pageQuery" resultType="com.tg.entity.Project">
+        SELECT * FROM project
+        <where>
+            <if test="projectName != null and projectName != ''">
+                AND project_name LIKE CONCAT('%', #{projectName}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+<!--    <update id="update" parameterType="com.tg.entity.Project">-->
+<!--        UPDATE project-->
+<!--        <set>-->
+<!--            <if test="projectNumber != null">project_number = #{projectNumber},</if>-->
+<!--            <if test="projectName != null">project_name = #{projectName},</if>-->
+<!--            <if test="department != null">department_id = #{department.id},</if>-->
+<!--            <if test="manager != null">manager_id = #{manager.id},</if>-->
+<!--            <if test="projectCategory != null">project_category_id = #{projectCategory.id},</if>-->
+<!--            <if test="projectType != null">project_type_id = #{projectType.id},</if>-->
+<!--            <if test="budget != null">budget = #{budget},</if>-->
+<!--            <if test="productType != null">product_type_id = #{productType.id},</if>-->
+<!--            <if test="productName != null">product_name = #{productName},</if>-->
+<!--            <if test="productNumber != null">product_number = #{productNumber},</if>-->
+<!--            <if test="industry != null">industry_id = #{industry.id},</if>-->
+<!--            <if test="attachment != null">attachment = #{attachment}</if>-->
+<!--        </set>-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
+
+</mapper>
