@@ -51,10 +51,15 @@ public class ProjectServiceImpl implements ProjectService {
 //        return project;
 
         Project project = new Project();
-        //对象属性拷贝
+
+        // 对象属性拷贝
         BeanUtils.copyProperties(projectCreationDTO, project);
-        project.setProjectName(projectCreationDTO.getProjectName());
-        project.setBudget(projectCreationDTO.getBudget());
+//        project.setProjectName(projectCreationDTO.getProjectName());
+//        project.setBudget(projectCreationDTO.getBudget());
+
+//        // 设置当前记录的创建时间和修改时间
+        project.setCreateTime(LocalDateTime.now());
+        project.setUpdateTime(LocalDateTime.now());
 
         projectMapper.insert(project);
         return project;
@@ -98,6 +103,9 @@ public class ProjectServiceImpl implements ProjectService {
         // 使用BeanUtils进行大部分属性复制，然后对特殊字段进行手动设置
         BeanUtils.copyProperties(projectUpdateDTO, project);
 //        project.setBudget(projectUpdateDTO.getBudget());
+
+        // 设置当前记录的修改时间
+        project.setUpdateTime(LocalDateTime.now());
         projectMapper.update(project);
         return project;
     }
@@ -111,8 +119,9 @@ public class ProjectServiceImpl implements ProjectService {
             throw new ProjectNotFoundException("Project with project number: " + projectUpdateStatusDTO.getProjectNumber() + " not found");
         }
 
-        // 更新项目状态
+        // 更新项目状态和更新时间
         project.setProjectStatus(projectUpdateStatusDTO.getProjectStatus());
+        project.setUpdateTime(LocalDateTime.now());
         projectMapper.update(project);
         return project;
     }

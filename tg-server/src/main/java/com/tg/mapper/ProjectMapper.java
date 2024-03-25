@@ -40,7 +40,7 @@ public interface ProjectMapper {
      * 插入项目
      * @param project
      */
-    @Insert("INSERT INTO project (project_number, project_name, department, manager, project_category, project_type, budget, product_type, product_name, product_number, industry, attachment, project_status) VALUES (#{projectNumber}, #{projectName}, #{department}, #{manager}, #{projectCategory}, #{projectType}, #{budget}, #{productType}, #{productName}, #{productNumber}, #{industry}, #{attachment}, 1)")
+    @Insert("INSERT INTO project (project_number, project_name, department, manager, project_category, project_type, budget, product_type, product_name, product_number, industry, attachment, project_status, create_time, update_time) VALUES (#{projectNumber}, #{projectName}, #{department}, #{manager}, #{projectCategory}, #{projectType}, #{budget}, #{productType}, #{productName}, #{productNumber}, #{industry}, #{attachment}, 1, #{createTime}, #{updateTime})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     @AutoFill(value = OperationType.INSERT)
     void insert(Project project);
@@ -70,7 +70,9 @@ public interface ProjectMapper {
             "product_number = #{productNumber},",
             "industry = #{industry},",
             "attachment = #{attachment},",
-            "project_status = #{projectStatus}",
+            "project_status = #{projectStatus},",
+            "create_time = #{createTime},",
+            "update_time = #{updateTime}",
             "WHERE id = #{id}"
     })
     @Options(useGeneratedKeys = true, keyProperty = "id")

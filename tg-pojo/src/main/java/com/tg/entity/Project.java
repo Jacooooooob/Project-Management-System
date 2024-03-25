@@ -83,4 +83,12 @@ public class Project {
     @Column(name = "projectStatus")
     @ApiModelProperty("项目状态")
     private Integer projectStatus;
+
+    @Column(name = "createTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
+
+    @Column(name = "updateTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updateTime;
 }
