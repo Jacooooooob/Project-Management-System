@@ -43,7 +43,7 @@ To get the project up and running on your local machine for development and test
 
 - **Attachement**:
   - **Database Design**:
-    - ![image](https://github.com/Jacooooooob/tg-initiate-project/assets/96058597/e1ce1116-c309-44e8-8211-84cd2d06f2bf)
+    - ![image](https://github.com/Jacooooooob/Project-Management-System/assets/96058597/81badca1-f05e-4f21-8ce4-a8403f7cbe51)
     - ![image](https://github.com/Jacooooooob/tg-initiate-project/assets/96058597/b0c2aded-e4aa-4d29-b6a7-1a201304574a)
   - **Swagger**:
     - ![5a43c762306d4ce726aab3366239943](https://github.com/Jacooooooob/tg-initiate-project/assets/96058597/02826a13-e7ee-4a15-939d-6ffab97624b8)
