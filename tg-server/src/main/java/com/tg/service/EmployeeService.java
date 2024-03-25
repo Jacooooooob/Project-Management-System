@@ -36,10 +36,10 @@ public interface EmployeeService {
      * @param employeeDTO 员工信息
      */
     void updateEmployee(EmployeeDTO employeeDTO);
-//
-//    /**
-//     * 删除员工
-//     * @param id 员工ID
-//     */
-//    void removeEmployee(Integer id);
+
+    /**
+     * 删除员工
+     * @param id 员工ID
+     */
+    void removeEmployee(Integer id);
 }

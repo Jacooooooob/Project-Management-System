@@ -114,4 +114,12 @@ public class EmployeeController {
         employeeService.updateEmployee(employeeDTO);
         return Result.success();
     }
+
+    @DeleteMapping("/admin/employee/delete/{id}")
+    @ApiOperation("删除员工信息")
+    public Result delete(@PathVariable Integer id){
+        log.info("删除员工信息：{}", id);
+        employeeService.removeEmployee(id);
+        return Result.success();
+    }
 }

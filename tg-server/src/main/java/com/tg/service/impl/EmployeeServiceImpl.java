@@ -132,20 +132,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
-//    /**
-//     * 从员工列表中移除指定ID的员工。
-//     *
-//     * @param id 要移除的员工的ID。
-//     * @return 如果成功移除员工返回true，如果员工ID不存在则返回false。
-//     */
-//    public boolean removeEmployee(Integer id) {
-//        // 检查员工ID是否存在
-//        if(employees.containsKey(id)) {
-//            employees.remove(id); // 移除指定ID的员工
-//            return true;
-//        }
-//        return false;
-//    }
+    /**
+     * 从员工列表中移除指定ID的员工。
+     *
+     * @param id 要移除的员工的ID。
+     * @return 如果成功移除员工返回true，如果员工ID不存在则返回false。
+     */
+    public void removeEmployee(Integer id) {
+        employeeMapper.delete(id);
+    }
 
 //
 //    /**
